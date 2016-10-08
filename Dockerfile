@@ -44,6 +44,6 @@ EXPOSE 80 443
 
 VOLUME ["/usr/share/nginx/www"]
 
-CMD ["/bin/bash", "/start.sh"]
+CMD ["/bin/bash", "/entrypoint.sh"]
 
 
