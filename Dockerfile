@@ -34,7 +34,7 @@ RUN mv /usr/share/nginx/wordpress /usr/share/nginx/www
 RUN chown -R www-data:www-data /usr/share/nginx/www
 
 # START PHP FMP
-#RUN service php7.0-fpm start
+RUN service php7.0-fpm start
 # that should be the start of supervisor
 
 ADD ./entrypoint.sh /entrypoint.sh
