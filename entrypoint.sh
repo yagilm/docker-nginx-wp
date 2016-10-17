@@ -48,6 +48,14 @@ ENDL
   chown www-data:www-data /usr/share/nginx/www/wp-config.php
 
   mysql -h$MYSQL_HOST -uroot -p$MYSQL_PASSWORD -e "CREATE DATABASE wordpress; GRANT ALL PRIVILEGES ON wordpress.* TO 'wordpress'@'%' IDENTIFIED BY '$WORDPRESS_PASSWORD'; FLUSH PRIVILEGES;"
+# Create certificate, fix nginx configuration and restart it
+letsencrypt certonly --noninteractive --email manos@tardix.info --server https://acme-v01.api.letsencrypt.org/directory --agree-tos --webroot -w /usr/share/nginx/www/ -d shop.tardix.info
+sleep 1
+sed '/ssl_certificate/s/#//g' /etc/nginx/sites-available/default > /etc/nginx/sites-available/default.new
+cp /etc/nginx/sites-available/default /root/nginx.default.backup
+rm /etc/nginx/sites-available/default
+mv /etc/nginx/sites-available/default.new /etc/nginx/sites-available/default
+/etc/init.d/nginx reload
 fi
 
 # start all the services

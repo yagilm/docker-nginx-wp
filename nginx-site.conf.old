@@ -31,8 +31,8 @@ server {
         ssl_ciphers         HIGH:!aNULL:!MD5;
         ssl_prefer_server_ciphers on;
 
-#        ssl_certificate     /etc/letsencrypt/live/shop.tardix.info/fullchain.pem;
-#        ssl_certificate_key /etc/letsencrypt/live/shop.tardix.info/privkey.pem;
+        ssl_certificate     /etc/letsencrypt/live/shop.tardix.info/fullchain.pem;
+        ssl_certificate_key /etc/letsencrypt/live/shop.tardix.info/privkey.pem;
 
 
         # Make site accessible from http://localhost/
@@ -121,8 +121,8 @@ server {
 #       index index.html index.htm;
 #
 #       ssl on;
-#       ssl_certificate /etc/letsencrypt/live/shop.tardix.info/fullchain.pem;
-#       ssl_certificate_key /etc/letsencrypt/live/shop.tardix.info/privkey.pem;
+       ssl_certificate /etc/letsencrypt/live/shop.tardix.info/fullchain.pem;
+       ssl_certificate_key /etc/letsencrypt/live/shop.tardix.info/privkey.pem;
 #
 #       ssl_session_timeout 5m;
 #
